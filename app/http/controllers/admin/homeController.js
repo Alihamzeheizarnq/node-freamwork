@@ -10,6 +10,14 @@ module.exports = new class homeController {
      */
     index(request, respons) {
 
-        respons.render('admin/index' , {title : 'پنل مدیریت'});
+        if(request.session.view){
+            console.log('hello')
+            request.session.view++;
+        }else{
+            request.session.view = 1;
+        }
+
+        respons.render('admin/index' , {title : 'پنل مدیریت' , count : request.session.view});
+
     }
 }
