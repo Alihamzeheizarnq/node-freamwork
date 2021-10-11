@@ -1,11 +1,56 @@
-<h1><%= count %></h1>
-
-<button id="btn">send</button>
-<style>
-  body {
-    background-color: aquamarine;
-  }
-</style>
+<main id="main-container">
+  <!-- Page Content -->
+  <div class="content">
+    <div class="block">
+      <div class="block-header block-header-default">
+        <h3 class="block-title"><small>Get Started</small> Blank</h3>
+        <div class="block-options pl-0">
+          <button
+            type="button"
+            class="btn-block-option"
+            data-toggle="block-option"
+            data-action="fullscreen_toggle"
+          ></button>
+          <button
+            type="button"
+            class="btn-block-option"
+            data-toggle="block-option"
+            data-action="pinned_toggle"
+          >
+            <i class="si si-pin"></i>
+          </button>
+          <button
+            type="button"
+            class="btn-block-option"
+            data-toggle="block-option"
+            data-action="state_toggle"
+            data-action-mode="demo"
+          >
+            <i class="si si-refresh"></i>
+          </button>
+          <button
+            type="button"
+            class="btn-block-option"
+            data-toggle="block-option"
+            data-action="content_toggle"
+          ></button>
+          <button
+            type="button"
+            class="btn-block-option"
+            data-toggle="block-option"
+            data-action="close"
+          >
+            <i class="si si-close"></i>
+          </button>
+        </div>
+      </div>
+      <div class="block-content">
+        <p>Create your own awesome project</p>
+      </div>
+    </div>
+  </div>
+  <!-- END Page Content -->
+</main>
 
 <script src="/socket.io.js"></script>
 
@@ -13,14 +58,10 @@
   const socket = io("wss://node.ideal-it.ir");
 
   socket.on("connect", () => {
-    
-
     const btn = document.querySelector("#btn");
 
     btn.addEventListener("click", (e) => {
-
       socket.emit("action", { massge: "hwllo world" });
-
     });
 
     socket.on("call", (data) => {
@@ -29,6 +70,6 @@
   });
 
   socket.on("disconnect", () => {
-          socket.emit("disconnect", { xNmae: 'alihamzehei dis' });
+    socket.emit("disconnect", { xNmae: "alihamzehei dis" });
   });
 </script>

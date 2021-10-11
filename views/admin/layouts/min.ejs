@@ -1,19 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" class="no-focus">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0"
+    />
+
     <title><%= title %></title>
 
-    <%- style %>
+    <meta
+      name="description"
+      content="Codebase - Bootstrap 4 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest"
+    />
+    <meta name="author" content="pixelcave" />
+    <meta name="robots" content="noindex, nofollow" />
 
-</head>
-<body>
-    
-    <%- body %>
+    <!-- Open Graph Meta -->
+    <meta
+      property="og:title"
+      content="Codebase - Bootstrap 4 Admin Template &amp; UI Framework"
+    />
+    <meta property="og:site_name" content="Codebase" />
+    <meta
+      property="og:description"
+      content="Codebase - Bootstrap 4 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+
+    <link rel="shortcut icon" href="/img/favicons/favicon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/img/favicons/favicon-192x192.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/favicons/apple-touch-icon-180x180.png"
+    />
+
+    <link rel="stylesheet" id="css-main" href="/css/codebase.min.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+    <%- style %>
+  </head>
+  <body>
+    <div
+      id="page-container"
+      class="
+        sidebar-o sidebar-r
+        side-scroll
+        page-header-modern
+        main-content-boxed
+      "
+    >
+      <!-- Side Overlay-->
+      <%- include('../parsials/aside') %>
+      <!-- END Side Overlay -->
+
+      <!-- Sidebar -->
+
+      <%- include('../parsials/sidebar') %>
+      <!-- Header -->
+      <%- include('../parsials/header') %>
+
+      <!-- Main Container -->
+      <%- body %>
+      <!-- END Main Container -->
+
+      <!-- Footer -->
+      <%- include('../parsials/footer') %>
+      <!-- END Footer -->
+    </div>
+    <script src="/js/codebase.min.js"></script>
 
     <%- script %>
-
-</body>
+  </body>
 </html>
