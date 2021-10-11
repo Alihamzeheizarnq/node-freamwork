@@ -8,7 +8,7 @@ const database = require('./config/database');
 
 global.config = require('./config/path');
 
-database.connect();
+// database.connect();
 
 const app = express();
 
