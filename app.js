@@ -31,7 +31,7 @@ Env.config({ path: './.env' });
 
 app.use(cookieParser(process.env.SECRET))
 app.use(session({
-    secret: process.env.SECRET,
+    secret: 'process.env.SECRET',
     resave: false,
     saveUninitialized: true,
     cookie: { maxAge: new Date(Date.now() + 86400000) },
