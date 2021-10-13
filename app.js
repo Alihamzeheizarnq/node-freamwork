@@ -17,7 +17,7 @@ const database = require('./config/database');
 global.config = require('./config/path');
 global.app = require('./config/helpers');
 
-database.connect();
+// database.connect();
 
 const app = express();
 
