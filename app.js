@@ -6,6 +6,7 @@ const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session')
 const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
+const MemoryStore = require('memorystore')(session)
 
 
 const methodOverride = require('method-override')
@@ -33,7 +34,10 @@ app.use(session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: new Date(Date.now() + 86400000) }
+    cookie: { maxAge: new Date(Date.now() + 86400000) },
+    store: new MemoryStore({
+        checkPeriod: 86400000 // prune expired entries every 24h
+    }),
 }));
 app.use(flash());
 
