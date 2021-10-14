@@ -33,7 +33,7 @@ app.use(session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: new Date(Date.now() + 86400000) }
+    cookie: { maxAge: (new Date(Date.now() + 86400000)).getSeconds() }
 }));
 app.use(flash());
 

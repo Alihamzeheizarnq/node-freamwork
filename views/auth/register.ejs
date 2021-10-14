@@ -1,7 +1,7 @@
 <% if (message.errors) { %>
 <% message.errors.forEach(function(error){ %>
 <div class="alert alert-danger" role="alert">
-  <%= error  %>
+  <%= error.message  %>
 </div>
 <% }); %>
 <% } %>

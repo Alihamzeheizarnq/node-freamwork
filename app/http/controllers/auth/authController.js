@@ -31,7 +31,7 @@ module.exports = new class homeController {
     register_store(request, respons) {
         RegisterRequest(request , respons).then(()=> {
             respons.redirect('/admin');
-        });
+        }).catch((err) => {});
 
     }
 }
