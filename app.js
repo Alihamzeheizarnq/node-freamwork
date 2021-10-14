@@ -34,7 +34,7 @@ app.use(session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: (new Date(Date.now() + 86400000)).getSeconds() },
+    cookie: { maxAge: new Date(Date.now() + 86400000) },
     store: new MemoryStore({
         checkPeriod: 86400000 // prune expired entries every 24h
     }),
