@@ -245,7 +245,7 @@ body {
 body,
 .datepicker-plot-area,
 button,
-h3 {
+h3,h2,a {
   font-family: IRANSansfanum !important;
 }
 

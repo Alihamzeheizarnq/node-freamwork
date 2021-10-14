@@ -74,6 +74,11 @@ app.use(require('./routes/admin'));
 
 
 
+app.get('*', (req, res, next) => {
+    res.status(404);
+    res.render('errors/404' , {layout : 'errors/main' , title : 'not found'});
+})
+
 
 
 
