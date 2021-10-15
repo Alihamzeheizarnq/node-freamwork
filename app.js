@@ -65,6 +65,7 @@ app.set("layout extractStyles", true)
 
 
 app.use((req, res, next) => {
+
     res.locals.message = req.flash();
     res.locals.old = res.locals.message.old;
     next();

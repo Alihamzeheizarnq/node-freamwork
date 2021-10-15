@@ -7,10 +7,10 @@ const homeController = require(`${config.adminController}/homeController`);
 const router = express.Router();
 
 router.use(auth);
-
-
-
 router.get('/', homeController.index.bind(homeController));
+
+
+
 
 
 
