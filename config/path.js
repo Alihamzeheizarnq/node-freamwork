@@ -6,5 +6,6 @@ module.exports = {
     adminController: path.resolve('app', 'http', 'controllers', 'admin'),
     frontController: path.resolve('app', 'http', 'controllers', 'front'),
     http: path.resolve('app', 'http'),
-    setting: path.resolve('config')
+    setting: path.resolve('config'),
+    request: path.resolve('app', 'http', 'request')
 }

@@ -55,9 +55,10 @@ let handelErrors = {
             `${setlabel(args.path)} نباید کمتر از ${args.min} کاراکتر داشته باشد.`,
         max: args =>
             `${setlabel(args.path)} نباید بیشتر از ${args.min} کاراکتر داشته باشد.`,
+        EmailExists: args => 'cftghcrdftghcr ftghh'
     },
 };
 
 module.exports = {
     handelErrors
-} ;
+};

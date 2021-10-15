@@ -13,12 +13,11 @@ const methodOverride = require('method-override')
 
 const database = require('./config/database');
 
-
-
 global.config = require('./config/path');
 global.app = require('./config/helpers');
+const { setUsermiddleware } = require('./app/http/middleware/setUserMiddleware');
 
-// database.connect();
+database.connect();
 
 const app = express();
 
@@ -56,6 +55,7 @@ app.use(express.static(path.resolve('node_modules', 'font-awesome')));
 
 
 
+
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 app.set('layout', 'admin/layouts/min');
@@ -69,6 +69,7 @@ app.use((req, res, next) => {
     res.locals.old = res.locals.message.old;
     next();
 })
+app.use(setUsermiddleware);
 app.use(require('./routes/web'));
 app.use(require('./routes/admin'));
 
@@ -76,7 +77,7 @@ app.use(require('./routes/admin'));
 
 app.get('*', (req, res, next) => {
     res.status(404);
-    res.render('errors/404' , {layout : 'errors/main' , title : 'not found'});
+    res.render('errors/404', { layout: 'errors/main', title: 'not found' });
 })
 
 

@@ -13,7 +13,7 @@ module.exports.LoginRequest = (req, res) => {
     return new Promise(async (resolve, reject) => {
         try {
             await schema.validate(req.body, { abortEarly: false });
-            resolve();
+            resolve(req.body);
         } catch (err) {
 
             const errors = [];
@@ -29,7 +29,7 @@ module.exports.LoginRequest = (req, res) => {
 
             errors.filter((value) => {
                 const has = uniqueError.find(item => item.path === value.path);
-                if (! has) {
+                if (!has) {
                     uniqueError.push(value);
                 }
             })

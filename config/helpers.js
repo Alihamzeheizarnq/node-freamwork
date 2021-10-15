@@ -7,7 +7,7 @@ module.exports = {
                 return def;
             }
         }
-        return ''; 
+        return '';
 
     }
 }

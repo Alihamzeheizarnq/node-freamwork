@@ -1,8 +1,9 @@
-const res = require("express/lib/response");
-const { LoginRequest } = require("../../request/LoginRequest");
-const { RegisterRequest } = require("../../request/RegisterRequest");
+const bcrypt = require('bcrypt');
+const Controller = require(`${config.controller}/controller`);
+const { LoginRequest } = require(`${config.request}/LoginRequest`);
+const { RegisterRequest } = require(`${config.request}/RegisterRequest`);
 
-module.exports = new class homeController {
+module.exports = new class authController extends Controller {
 
     /**
      * @method GET
@@ -14,12 +15,45 @@ module.exports = new class homeController {
     }
     /**
       * @method POST
-      * @LoginRequest validation request.data || request.body
+      * @validation LoginRequest request.data || request.body
      */
-    login_store(request, respons) {
-        LoginRequest(request, respons).then(() => {
-            respons.redirect('/admin');
-        })
+    async login_store(request, respons) {
+
+        try {
+            const data = await LoginRequest(request, respons);
+
+            const user = await this.model.User.findOne({ email: data.email });
+
+            if (user) {
+                bcrypt.compare(data.password, user.password, function (err, isMatch) {
+                    if (err) {
+                        return new Error(err);
+                    }
+                    if (isMatch) {
+
+                        request.session.userId = user._id;
+                        respons.redirect('/');
+                    } else {
+
+                        request.flash('errors', { message: 'اطلاعات وارد شده اشتباه میباشد' });
+                        request.flash('old', request.body);
+                        respons.redirect('/login');
+                    }
+
+                });
+
+            } else {
+                request.flash('errors', { message: 'اطلاعات وارد شده اشتباه میباشد' });
+                request.flash('old', request.body);
+                respons.redirect('/login');
+
+            }
+
+
+        } catch (error) {
+
+        }
+
 
     }
     /**
@@ -31,12 +65,26 @@ module.exports = new class homeController {
     }
     /**
      * @method POST
-     * @RegisterRequest validation request.data || request.body
+     * @validation RegisterRequest request.data || request.body
      */
-    register_store(request, respons) {
-        (request, respons).then(() => {
-            respons.redirect('/admin');
-        }).catch((err) => { });
+    async register_store(request, respons) {
+        try {
+            await RegisterRequest(request, respons);
+
+            const user = new this.model.User({
+                name: request.body.name,
+                email: request.body.email,
+                password: request.body.password,
+            }).save();
+
+            const users = await user;
+            request.session.userId = users._id;
+            respons.redirect('/');
+
+        } catch (error) {
+            console.log(error);
+        }
+
 
     }
 }
