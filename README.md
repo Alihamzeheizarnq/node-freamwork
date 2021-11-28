@@ -13,3 +13,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### `database : mongoDB`
+
+install [https://docs.mongodb.com](https://docs.mongodb.com/manual/installation/).
