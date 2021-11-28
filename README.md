@@ -17,3 +17,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### `database : mongoDB`
 
 install [https://docs.mongodb.com](https://docs.mongodb.com/manual/installation/).
+
+
+open terminal and create .env file:
+
+```bash
+cp .env.example .env
+nano .env
+```
