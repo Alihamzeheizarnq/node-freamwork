@@ -33,9 +33,9 @@ $ ./tree-md .
 .
  * [app](./app)
    * [http](./app/http)
-      *[controller](./app/http/controller)
-      *[middleware](./app/http/middleware)
-      *[request](./app/http/request)  
+    * [controller](./app/http/controller)
+    * [middleware](./app/http/middleware)
+    * [request](./app/http/request)  
    * [models](./app/models)
  * [config](./config)
    * [database.js](./config/database.js)
