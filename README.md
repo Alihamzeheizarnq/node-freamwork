@@ -55,10 +55,11 @@ module.exports = {
       your codes
     }
 }
-```
 In this file, the definition of global flexibility can be used as follows
 
 app.example();
+```
+
 
 
 
