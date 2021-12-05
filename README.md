@@ -18,6 +18,50 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 install [https://docs.mongodb.com](https://docs.mongodb.com/manual/installation/).
 
+### `routes`
+
+/login 
+/register
+/admin
+
+
+### `vaidation errors message`
+
+/config/errors.js
+
+### `database config`
+
+/config/database.js
+
+### `helpers function`
+
+/config/helpers.js
+
+exmple :
+
+module.exports = {
+    old: (old, key, def = null) => {
+        if (old) {
+            if (old[0][key]) {
+                return old[0][key];
+            } else if (def) {
+                return def;
+            }
+        }
+        return '';
+
+    },
+    
+    example : () => {
+      your codes
+    }
+}
+
+In this file, the definition of global flexibility can be used as follows
+
+app.example();
+
+
 
 open terminal and create .env file:
 
