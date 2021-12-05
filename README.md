@@ -48,10 +48,8 @@ module.exports = {
                 return def;
             }
         }
-        return '';
-
+        return ''
     },
-    
     example : () => {
       your codes
     }
