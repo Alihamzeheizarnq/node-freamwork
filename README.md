@@ -38,7 +38,7 @@ install [https://docs.mongodb.com](https://docs.mongodb.com/manual/installation/
 /config/helpers.js
 
 exmple :
-
+```bash
 module.exports = {
     old: (old, key, def = null) => {
         if (old) {
@@ -50,11 +50,12 @@ module.exports = {
         }
         return ''
     },
+    
     example : () => {
       your codes
     }
 }
-
+```
 In this file, the definition of global flexibility can be used as follows
 
 app.example();
